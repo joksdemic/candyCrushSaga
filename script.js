@@ -174,3 +174,64 @@ function dragEnd() {
       }
     }
 }
+
+
+function crushCandy() {
+    let matched = true;
+    while (matched) {
+      matched = false;
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < columns - 2; c++) {
+          let candy = board[r][c];
+          let matchCount = 1;
+  
+          while (c + matchCount < columns && board[r][c + matchCount].src === candy.src && !candy.src.includes("blank")) {
+            matchCount++;
+          }
+  
+          if (matchCount >= 3) {
+            for (let i = 0; i < matchCount; i++) {
+              board[r][c + i].src = "./images/blank.png";
+            }
+            score += matchCount * 10;
+            matched = true;
+  
+            if (matchCount === 3) {
+              playCandySound(matchCount);
+            } else if (matchCount > 3) {
+              playCandySound(matchCount);
+            }
+          }
+        }
+      }
+  
+      for (let c = 0; c < columns; c++) {
+        for (let r = 0; r < rows - 2; r++) {
+          let candy = board[r][c];
+          let matchCount = 1;
+  
+          while (r + matchCount < rows && board[r + matchCount][c].src === candy.src && !candy.src.includes("blank")) {
+            matchCount++;
+          }
+  
+          if (matchCount >= 3) {
+            for (let i = 0; i < matchCount; i++) {
+              board[r + i][c].src = "./images/blank.png";
+            }
+            score += matchCount * 10; 
+            matched = true;
+  
+            if (matchCount === 3) {
+              playCandySound(matchCount);
+            } else if (matchCount > 3) {
+              playCandySound(matchCount);
+            }
+          }
+        }
+      }
+    }
+
+    document.getElementById("score").innerText = score + "/500"; 
+  
+    crushLongerMatches();
+}

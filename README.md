@@ -84,3 +84,7 @@ dragDrop() function records the target candy where the dragged candy is dropped 
 
 dragEnd() function checks if the selected or target candy is blank and stops the process if so. Checks if the two candies are validSwaps (left, right, up, down). If the swap is valid, the candies are swapped. If the swap is invalid, the candies are swapped back and a shake effect is triggered on the cells
 **************************
+8th commit - Implement candy crushing and score update for matches
+
+#JS
+The crushCandy() function checks for horizontal and vertical matches of 3 or more consecutive candies on the board. When a match is found, the matched candies are replaced with blank images, and the score is increased by 10 points per candy. A sound effect is played for each match. The function continues checking and crushing matches until the score reaches 500 points. Afterward, it calls crushLongerMatches() function
