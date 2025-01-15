@@ -94,3 +94,11 @@ The crushCandy() function checks for horizontal and vertical matches of 3 or mor
 #JS
 The crushLongerMatches() function iterates through each row and column to check for horizontal and vertical matches. It starts with a matchCount of 1 and increments it for consecutive candies with the same image. If there are 3 or more matching candies, they are replaced with new random candies, and the score is increased by 10 points for each candy in the match. A sound is played for each match. If the score reaches or exceeds 500 points, a special sound playDivineSound() is played
 *****************************
+10th commit - Adding sound effects
+
+#JS
+The playCandySound(matchCount) function plays a sound based on the number of candies matched. If exactly 3 candies are matched, it plays the crush sound ,if more than 3 are matched, it plays the "frogtastic" sound
+
+The playDivineSound() function plays a special "divine" sound when score reaches 500 and after a delay of 2 seconds. After playing the sound, it reloads the page creating a brief pause before the page refreshes.
+*****************************************
+

@@ -290,4 +290,24 @@ function crushLongerMatches() {
       playDivineSound();
     }
 }
+
+function playCandySound(matchCount) {
+    let sound = matchCount === 3 
+      ? document.getElementById("crushSound") 
+      : document.getElementById("frogtasticSound");
+  
+    sound.play();
+}
+  
+function playDivineSound() {
+    setTimeout(function() {
+      let divineSound = document.getElementById("divineSound");
+      divineSound.play();
+      
+      setTimeout(function() {
+        location.reload();
+      }, 1200);  
+    }, 2000);  
+}
+  
   
