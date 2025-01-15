@@ -88,3 +88,9 @@ dragEnd() function checks if the selected or target candy is blank and stops the
 
 #JS
 The crushCandy() function checks for horizontal and vertical matches of 3 or more consecutive candies on the board. When a match is found, the matched candies are replaced with blank images, and the score is increased by 10 points per candy. A sound effect is played for each match. The function continues checking and crushing matches until the score reaches 500 points. Afterward, it calls crushLongerMatches() function
+***************************
+9th commit - Implement logic for handling longer candy matches and score increment
+
+#JS
+The crushLongerMatches() function iterates through each row and column to check for horizontal and vertical matches. It starts with a matchCount of 1 and increments it for consecutive candies with the same image. If there are 3 or more matching candies, they are replaced with new random candies, and the score is increased by 10 points for each candy in the match. A sound is played for each match. If the score reaches or exceeds 500 points, a special sound playDivineSound() is played
+*****************************

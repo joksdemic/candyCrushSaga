@@ -235,3 +235,59 @@ function crushCandy() {
   
     crushLongerMatches();
 }
+
+
+function crushLongerMatches() {
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < columns - 2; c++) {
+        let candy = board[r][c];
+        let matchCount = 1;
+  
+        while (
+          c + matchCount < columns &&
+          board[r][c + matchCount].src === candy.src &&
+          !candy.src.includes("blank")
+        ) {
+          matchCount++;
+        }
+  
+        if (matchCount >= 3) {
+          for (let i = 0; i < matchCount; i++) {
+            board[r][c + i].src = "./images/" + randomCandy() + ".png";
+          }
+          score += matchCount * 10;
+          
+          playCandySound(matchCount);
+        }
+      }
+    }
+  
+    for (let c = 0; c < columns; c++) {
+      for (let r = 0; r < rows - 2; r++) {
+        let candy = board[r][c];
+        let matchCount = 1;
+  
+        while (
+          r + matchCount < rows &&
+          board[r + matchCount][c].src === candy.src &&
+          !candy.src.includes("blank")
+        ) {
+          matchCount++;
+        }
+  
+        if (matchCount >= 3) {
+          for (let i = 0; i < matchCount; i++) {
+            board[r + i][c].src = "./images/" + randomCandy() + ".png";
+          }
+          score += matchCount * 10;
+          
+          playCandySound(matchCount);
+        }
+      }
+    }
+  
+    if (score >= 500) {
+      playDivineSound();
+    }
+}
+  
