@@ -117,3 +117,60 @@ function generateCandy() {
       }
     }
 }
+
+function dragStart() {
+    selectedCandy = this;
+}
+  
+function dragOver(e) {
+    e.preventDefault();
+}
+  
+function dragEnter(e) {
+    e.preventDefault();
+}
+  
+function dragLeave() {}
+  
+function dragDrop() {
+    targetCandy = this;
+}
+
+function dragEnd() {
+    if (selectedCandy.src.includes("blank") || targetCandy.src.includes("blank")) {
+      return;
+    }
+  
+    let currCoords = selectedCandy.id.split("-");
+    let r = parseInt(currCoords[0]);
+    let c = parseInt(currCoords[1]);
+  
+    let otherCoords = targetCandy.id.split("-");
+    let r2 = parseInt(otherCoords[0]);
+    let c2 = parseInt(otherCoords[1]);
+  
+    let moveLeft = c2 == c - 1 && r == r2;
+    let moveRight = c2 == c + 1 && r == r2;
+  
+    let moveUp = r2 == r - 1 && c == c2;
+    let moveDown = r2 == r + 1 && c == c2;
+  
+    let isValidSwap = moveLeft || moveRight || moveUp || moveDown;
+  
+    if (isValidSwap) {
+      let currImg = selectedCandy.src;
+      let otherImg = targetCandy.src;
+      selectedCandy.src = otherImg;
+      targetCandy.src = currImg;
+  
+      let validMove = checkValid();
+      if (!validMove) {
+        let currImg = selectedCandy.src;
+        let otherImg = targetCandy.src;
+        selectedCandy.src = otherImg;
+        targetCandy.src = currImg;
+  
+        shakeCells(selectedCandy, targetCandy);
+      }
+    }
+}

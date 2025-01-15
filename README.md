@@ -69,3 +69,18 @@ So, yhe function ensures that candies above the cleared spaces fall down to fill
 
 The generateCandy() function checks the top row of each column for blank cells and replaces them with random candies. When candies are cleared, new ones are generated at the top to fill the spaces
 ************************
+7th commit - Add drag and drop logic for candy selection and swapping
+
+#JS
+dragStart() function stores the candy being dragged in the selectedCandy variable when the drag starts
+
+dragOver() function allows the dragged candy to be dropped by preventing the default behavior
+
+dragEnter() function prepares the target area to accept the dragged candy by preventing the default behavior
+
+dragLeave() function triggered when the dragged candy leaves the target area
+
+dragDrop() function records the target candy where the dragged candy is dropped and stores it in targetCandy
+
+dragEnd() function checks if the selected or target candy is blank and stops the process if so. Checks if the two candies are validSwaps (left, right, up, down). If the swap is valid, the candies are swapped. If the swap is invalid, the candies are swapped back and a shake effect is triggered on the cells
+**************************
