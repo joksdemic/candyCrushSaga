@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+body {
+    background: url("./images/background.jpg");
+    background-size: cover;
+    font-family: "Pacifico", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: aliceblue;
+    text-align: center;
+}
+  
+#board {
+    width: 450px;
+    height: 450px;
+    background-color:  rgba(93, 115, 139, 0.8);
+    border: 3px solid #4D5D7D;
+    border-radius: 10px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
