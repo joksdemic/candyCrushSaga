@@ -41,4 +41,20 @@ Once the board is generated, the function checkInitialMatches() is called to che
 
 We also log the board array to the console to verify that everything is working correctly
 ************************
+5th commit - Validation check and reset board
 
+#JS
+The checkValid() function does horizontal and vertical check. 
+
+Horizontal Check:
+The first loop (for (let r = 0; r < rows; r++)) goes through each row of the board
+The second loop (for (let c = 0; c < columns - 2; c++)) goes through each column within that row, except the last 2 columns. By stopping at columns - 2, we ensure that there will always be 3 cells available to check for a match (the cells at positions c, c+1, and c+2)
+
+Vertical Check:
+The first loop (for (let c = 0; c < columns; c++)) goes through each column of the board
+The second loop (for (let r = 0; r < rows - 2; r++)) goes through each row, except the last 2 rows. By stopping at rows - 2, we ensure there will always be 3 cells available to check for a mach (the cells at positions r, r+1, and r+2)
+
+Then, we assign variables to the three cells we want to compare. We check if three consecutive candies in a horizontal or vertical line have the same image based on their image source (src) and ensure they are not blank. If both conditions are met, the function returns true, indicating a valid match, otherwise the function returns false 
+
+resetBoard() function is reseting the board array, clear its current state, and then restart the game
+***********************

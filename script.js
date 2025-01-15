@@ -54,3 +54,42 @@ function startGame() {
 function checkInitialMatches() {
     return checkValid();
 }
+
+function checkValid() {
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < columns - 2; c++) {
+        let candy1 = board[r][c];
+        let candy2 = board[r][c + 1];
+        let candy3 = board[r][c + 2];
+        if (
+          candy1.src == candy2.src &&
+          candy2.src == candy3.src &&
+          !candy1.src.includes("blank")
+        ) {
+          return true;
+        }
+      }
+    }
+  
+    for (let c = 0; c < columns; c++) {
+      for (let r = 0; r < rows - 2; r++) {
+        let candy1 = board[r][c];
+        let candy2 = board[r + 1][c];
+        let candy3 = board[r + 2][c];
+        if (
+          candy1.src == candy2.src &&
+          candy2.src == candy3.src &&
+          !candy1.src.includes("blank")
+        ) {
+          return true;
+        }
+      }
+    }
+    return false;
+}
+
+function resetBoard() {
+    board = [];
+    document.getElementById("board").innerHTML = "";
+    startGame();
+}
