@@ -102,3 +102,8 @@ The playCandySound(matchCount) function plays a sound based on the number of can
 The playDivineSound() function plays a special "divine" sound when score reaches 500 and after a delay of 2 seconds. After playing the sound, it reloads the page creating a brief pause before the page refreshes.
 *****************************************
 
+11th commit - Add shake animation for invalid candy moves
+
+#JS
+The shakeCells() function adds a shake animation to 2 candy elements when they are swapped back after an invalid move
+***************************************

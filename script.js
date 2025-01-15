@@ -310,4 +310,11 @@ function playDivineSound() {
     }, 2000);  
 }
   
-  
+function shakeCells(cell1, cell2) {
+    cell1.style.animation = "shake 0.3s";
+    cell2.style.animation = "shake 0.3s";
+    setTimeout(() => {
+      cell1.style.animation = "";
+      cell2.style.animation = "";
+    }, 300);
+}
