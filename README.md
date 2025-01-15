@@ -16,3 +16,29 @@ This function includes:  - crushCandy() to check for candy matches,
                          - slideCandy() to move candies down the board,
                          - generateCandy() to generate new candies and fill empty spaces.
 *******************************
+4th commit - Add startGame function to create board and handle drag and drop events
+
+#JS
+Inside the startGame() function, we first create an outer loop to iterate over the rows, and an inner loop to iterate over the columns. This nested loop is used to create the game grid, which will be made up of image elements(candies).
+
+For each row and column, a new image element is created using document.createElement("img").
+The image is given a class cell, so we could manipulate it in css file.
+A unique ID is assigned to each cell, ensuring that each cell can be easily identified.
+The src of the image is set to a random candy image. 
+The function randomCandy() returns a string that represents the image file name.
+Each cell has several event listeners attached to handle drag-and-drop interactions. These events manage the drag-and-drop actions for the cells within the game. Events:
+
+    dragstart: Fired when dragging starts.
+    dragover: Fired when a dragged element is over another element.
+    dragenter: Fired when the dragged element enters a valid drop target.
+    dragleave: Fired when the dragged element leaves a valid drop target.
+    drop: Fired when the dragged element is dropped.
+    dragend: Fired when the drag operation ends.
+
+Each created cell is added to the board container using document.getElementById("board").append(cell)
+
+Once the board is generated, the function checkInitialMatches() is called to check if there are any initial matches in the grid. If matches are found, the resetBoard() function is called to reset the board. If no matches are found, a message "Board is valid at start" is logged to the console.
+
+We also log the board array to the console to verify that everything is working correctly
+************************
+

@@ -20,3 +20,37 @@ window.onload = function() {
 function randomCandy() {
     return candies[Math.floor(Math.random() * candies.length)];
 }
+
+function startGame() {
+    for(let r = 0; r < rows; r++) {
+        let row = [];
+        for(let c = 0; c < columns; c++) {
+            let cell = document.createElement("img");
+            cell.classList.add("cell");
+            cell.id = r.toString() + "-" + c.toString();
+            cell.src = "./images/" + randomCandy() + ".png";
+
+            cell.addEventListener("dragstart", dragStart);
+            cell.addEventListener("dragover", dragOver);
+            cell.addEventListener("dragenter", dragEnter);
+            cell.addEventListener("dragleave", dragLeave);
+            cell.addEventListener("drop", dragDrop);
+            cell.addEventListener("dragend", dragEnd);
+
+            document.getElementById("board").append(cell);
+            row.push(cell);            
+        }
+        board.push(row);
+    }
+
+    if(checkInitialMatches()) {
+        resetBoard();
+    } else {
+        console.log("Board is valid at start");
+    }
+    console.log(board);
+}
+
+function checkInitialMatches() {
+    return checkValid();
+}
