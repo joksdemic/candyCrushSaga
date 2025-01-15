@@ -93,3 +93,27 @@ function resetBoard() {
     document.getElementById("board").innerHTML = "";
     startGame();
 }
+
+function slideCandy() {
+    for (let c = 0; c < columns; c++) {
+      let ind = rows - 1;
+  
+      for (let r = rows - 1; r >= 0; r--) {
+        if (!board[r][c].src.includes("blank")) {
+          board[ind][c].src = board[r][c].src;
+          if (ind !== r) {
+            board[r][c].src = "./images/blank.png";
+          }
+          ind -= 1;
+        }
+      }
+    }
+}
+  
+function generateCandy() {
+    for (let c = 0; c < columns; c++) {
+      if (board[0][c].src.includes("blank")) {
+        board[0][c].src = "./images/" + randomCandy() + ".png";
+      }
+    }
+}

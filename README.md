@@ -58,3 +58,14 @@ Then, we assign variables to the three cells we want to compare. We check if thr
 
 resetBoard() function is reseting the board array, clear its current state, and then restart the game
 ***********************
+6th commit - Add functionality for candy movement and automatic refill
+
+#JS
+In the slideCandy() function the loop starts from the bottom of the column (rows - 1) and moves upwards (r >= 0)
+For each cell, it checks if the candy in that position is not blank by examining the src property
+If the candy is not blank, it is moved to the position tracked by index, which represents the next available row below any other non-blank candy
+After moving the candy, index is decremented by 1, so the next non-blank candy will be placed just below the previously moved candy
+So, yhe function ensures that candies above the cleared spaces fall down to fill in the gaps
+
+The generateCandy() function checks the top row of each column for blank cells and replaces them with random candies. When candies are cleared, new ones are generated at the top to fill the spaces
+************************
